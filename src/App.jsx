@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import UserDetail from "./pages/UserDetail";
 import { UserProvider } from "./context/UserContext";
 import { CartProvider } from "./context/CartContext";
+import Users from "./components/CrudUsingJsonplaceHolder/Users";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             }
           />
           <Route path="/user/:id" element={<UserDetail/>} />
+          <Route path="/users" element={<Users/>} />
         </Routes>
       </Router>
       </CartProvider>
