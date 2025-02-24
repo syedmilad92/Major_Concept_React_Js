@@ -1,33 +1,37 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import User from "./User";
 
 const Users = () => {
-    const [users,setUsers] = useState([])
+  const [users, setUsers] = useState([])
   useEffect(() => {
     fetchUsers()
   }, []);
 
   const fetchUsers = async () => {
     await fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => {
-        if (res !== 201) {
-          return;
+      .then((response) => {
+        if (!response.ok) {
+          return
         } else {
-          return  res.json();
+          return response.json()
         }
       })
       .then((data) => {
-        console.log("data==>",data)
         setUsers(data)
       })
       .catch((error) => {
-        console.log("error==>", error);
-      });
+        console.log("Error==>",error)
+      })
   };
-  console.log("user==>",users)
   return (
     <div>
-        <h3>CRUD using jsonPlaceHolder</h3>
+      <h3>CRUD using jsonPlaceHolder</h3>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+        {users.map((user, index) => (
+          <User key={index} name={user.name} email={user.email} />
+        ))}
+      </div>
     </div>
   )
 };
