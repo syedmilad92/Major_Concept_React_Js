@@ -9,6 +9,7 @@ import UserDetail from "./pages/UserDetail";
 import { UserProvider } from "./context/UserContext";
 import { CartProvider } from "./context/CartContext";
 import Users from "./components/CrudUsingJsonplaceHolder/Users";
+import MemoCallbackReactMemo from "./components/MemoCallbackReactMemo/MemoCallbackReactMemo";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           />
           <Route path="/user/:id" element={<UserDetail/>} />
           <Route path="/users" element={<Users/>} />
+          <Route path="/memo" element={<MemoCallbackReactMemo/>} />
         </Routes>
       </Router>
       </CartProvider>
