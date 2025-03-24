@@ -11,8 +11,6 @@ export const CounterDisplay = React.memo(({count,increment}) => {
   )
 })
 
-
-
 const MemoCallbackReactMemo = () => {
     const [count,setCount] = useState(0)
     const [text, setText] = useState("");
